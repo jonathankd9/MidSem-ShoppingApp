@@ -1,3 +1,3 @@
 # Shopping-App
 
-# This is e-commerce app built with React-native
+# This is an e-commerce app built with React-native
