@@ -1,7 +1,7 @@
 const plants = [
 	{
 		id: 1,
-		name: "Succulent Plant",
+		name: "Christ Hamper ",
 		price: "39.99",
 		like: true,
 		img: require("../assets/hamper1.png"),
@@ -11,7 +11,7 @@ const plants = [
 
 	{
 		id: 2,
-		name: "Dragon Plant",
+		name: "Ges Hamper",
 		price: "29.99",
 		like: false,
 		img: require("../assets/hamper2.png"),
@@ -20,7 +20,7 @@ const plants = [
 	},
 	{
 		id: 3,
-		name: "Ravenea Plant",
+		name: "Hex Hamper",
 		price: "25.99",
 		like: false,
 		img: require("../assets/hamper3.png"),
@@ -30,7 +30,7 @@ const plants = [
 
 	{
 		id: 4,
-		name: "Potted Plant",
+		name: "Uxe Hamper",
 		price: "25.99",
 		like: true,
 		img: require("../assets/hamper4.png"),
@@ -39,7 +39,7 @@ const plants = [
 	},
 	{
 		id: 5,
-		name: "Ravenea Plant",
+		name: "Pop Hamper",
 		price: "50.99",
 		like: true,
 		img: require("../assets/hamper5.png"),
@@ -48,7 +48,7 @@ const plants = [
 	},
 	{
 		id: 6,
-		name: "Dragon Plant",
+		name: "View Hamper",
 		price: "50.99",
 		like: false,
 		img: require("../assets/hamper6.png"),
