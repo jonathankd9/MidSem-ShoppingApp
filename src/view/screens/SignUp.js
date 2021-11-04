@@ -61,8 +61,9 @@ function SignUp({ navigation }) {
 					flexDirection: "row",
 					alignItems: "center",
 				}}
+				onPress={() => navigation.navigate("Login")}
 			>
-				<Text style={{ fontSize: 17, marginLeft: 15 }}>Sign Up</Text>
+				<Text style={{ fontSize: 17, marginLeft: 15 }}>Go back</Text>
 			</TouchableOpacity>
 		</View>
 	);

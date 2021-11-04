@@ -22,8 +22,8 @@ export default function App() {
 			<StatusBar barStyle="dark-content" backgroundColor={COLORS.white} />
 			<Stack.Navigator>
 				{/* screenOptions={{ header: () => null }} */}
-				{/* <Stack.Screen name="Login" component={Login} /> */}
-				{/* <Stack.Screen name="SignUp" component={SignUp} /> */}
+				<Stack.Screen name="Login" component={Login} />
+				<Stack.Screen name="SignUp" component={SignUp} />
 				{/* <Stack.Screen name="LoginScreen" component={LoginScreen} /> */}
 				<Stack.Screen
 					name="Home"
