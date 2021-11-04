@@ -129,6 +129,7 @@ const HomeScreen = ({ navigation }) => {
 			{/* Title: Welcome to Hamper Shop */}
 			<View style={style.header}>
 				<View>
+					{/* <Text style={{ fontSize: 18, fontWeight: "light" }}>Hello there,</Text> */}
 					<Text style={{ fontSize: 25, fontWeight: "bold" }}>Welcome to</Text>
 					<Text style={{ fontSize: 38, fontWeight: "bold", color: COLORS.red }}>
 						Hamper Shop
@@ -137,7 +138,7 @@ const HomeScreen = ({ navigation }) => {
 				<Feather name="shopping-cart" size={28} color="black" />
 			</View>
 			{/* Search box */}
-			<View style={{ padding: 15, flexDirection: "row" }}>
+			<View style={{ padding: 5, flexDirection: "row" }}>
 				<View style={style.searchContainer}>
 					<Feather
 						name="search"
@@ -171,10 +172,10 @@ const HomeScreen = ({ navigation }) => {
 
 const style = StyleSheet.create({
 	header: {
-		marginTop: 20,
-		marginLeft: 20,
-		marginRight: 20,
-		// padding: 10,
+		// marginTop: 20,
+		// marginLeft: 20,
+		// marginRight: 20,
+		padding: 10,
 		flexDirection: "row",
 		justifyContent: "space-between",
 	},
@@ -224,7 +225,7 @@ const style = StyleSheet.create({
 		color: COLORS.red,
 		paddingBottom: 5,
 		borderBottomWidth: 5,
-		borderColor: COLORS.green,
+		borderColor: COLORS.red,
 	},
 	card: {
 		height: 225,
@@ -233,8 +234,8 @@ const style = StyleSheet.create({
 		marginHorizontal: 2,
 		borderRadius: 10,
 		marginBottom: 20,
-		marginLeft: 20,
-		marginRight: 20,
+		// marginLeft: 20,
+		// marginRight: 20,
 		padding: 10,
 	},
 });

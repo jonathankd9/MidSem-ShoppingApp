@@ -1,24 +1,3 @@
-// import * as React from "react";
-// import { Button, View, Text, Image } from "react-native";
-// import { NavigationContainer } from "@react-navigation/native";
-// import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-// function Login({ navigation }) {
-// 	return (
-// 		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-
-// 			<Text>Login Page</Text>
-// 			<Text>Login Page</Text>
-// 			<Button
-// 				title="Go to Details"
-// 				onPress={() => navigation.navigate("Home")}
-// 			/>
-// 		</View>
-// 	);
-// }
-
-// export default Login;
-
 import React from "react";
 import {
 	StyleSheet,
@@ -31,12 +10,18 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-// export default class App extends React.Component
-
-function Login({ navigation }) {
+function SignUp({ navigation }) {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.logo}>Hamper Shop</Text>
+			<View style={styles.inputView}>
+				<TextInput
+					style={styles.inputText}
+					placeholder="Username"
+					placeholderTextColor="#003f5c"
+					onChangeText={(text) => this.setState({ email: text })}
+				/>
+			</View>
 			<View style={styles.inputView}>
 				<TextInput
 					style={styles.inputText}
@@ -54,23 +39,31 @@ function Login({ navigation }) {
 					onChangeText={(text) => this.setState({ password: text })}
 				/>
 			</View>
-			<TouchableOpacity>
-				<Text style={styles.forgot}>Forgot Password?</Text>
-			</TouchableOpacity>
-			<TouchableOpacity
-				style={styles.loginBtn}
-				onPress={() => navigation.navigate("SignUp")}
-			>
-				<Text>Login</Text>
-			</TouchableOpacity>
+			<View style={styles.inputView}>
+				<TextInput
+					secureTextEntry
+					style={styles.inputText}
+					placeholder="Retype Password..."
+					placeholderTextColor="#003f5c"
+					onChangeText={(text) => this.setState({ password: text })}
+				/>
+			</View>
 			<TouchableOpacity style={styles.loginBtn}>
 				<Text style={styles.loginText}>Sign Up</Text>
 			</TouchableOpacity>
-
-			{/* <Button
-				title="Go to Details"
-				onPress={() => navigation.navigate("Home")}
-			/> */}
+			<TouchableOpacity
+				style={{
+					backgroundColor: "#e3e3e3",
+					padding: 10,
+					paddingHorizontal: 60,
+					marginTop: 20,
+					borderRadius: 10,
+					flexDirection: "row",
+					alignItems: "center",
+				}}
+			>
+				<Text style={{ fontSize: 17, marginLeft: 15 }}>Sign Up</Text>
+			</TouchableOpacity>
 		</View>
 	);
 }
@@ -120,4 +113,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Login;
+export default SignUp;
