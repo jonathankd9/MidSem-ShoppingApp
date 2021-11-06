@@ -7,8 +7,7 @@ import {
 	Button,
 	TouchableOpacity,
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 
 function SignUp({ navigation }) {
 	return (
@@ -51,7 +50,7 @@ function SignUp({ navigation }) {
 			<TouchableOpacity style={styles.loginBtn}>
 				<Text style={styles.loginText}>Sign Up</Text>
 			</TouchableOpacity>
-			<TouchableOpacity
+			{/* <TouchableOpacity
 				style={{
 					backgroundColor: "#e3e3e3",
 					padding: 10,
@@ -64,7 +63,7 @@ function SignUp({ navigation }) {
 				onPress={() => navigation.navigate("Login")}
 			>
 				<Text style={{ fontSize: 17, marginLeft: 15 }}>Go back</Text>
-			</TouchableOpacity>
+			</TouchableOpacity> */}
 		</View>
 	);
 }

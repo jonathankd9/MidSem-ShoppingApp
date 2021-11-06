@@ -28,10 +28,7 @@ import {
 	Button,
 	TouchableOpacity,
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-// export default class App extends React.Component
 
 function Login({ navigation }) {
 	return (
@@ -59,13 +56,13 @@ function Login({ navigation }) {
 			</TouchableOpacity>
 			<TouchableOpacity
 				style={styles.loginBtn}
-				onPress={() => navigation.navigate("SignUp")}
+				onPress={() => navigation.navigate("Home")}
 			>
 				<Text>Login</Text>
 			</TouchableOpacity>
 			<TouchableOpacity
 				style={styles.loginBtn}
-				onPress={() => navigation.navigate("Home")}
+				onPress={() => navigation.navigate("SignUp")}
 			>
 				<Text style={styles.loginText}>Sign Up</Text>
 			</TouchableOpacity>

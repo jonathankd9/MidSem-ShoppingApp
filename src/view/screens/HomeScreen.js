@@ -135,7 +135,7 @@ const HomeScreen = ({ navigation }) => {
 						Hamper Shop
 					</Text>
 				</View>
-				<Feather name="shopping-cart" size={28} color="black" />
+				<TouchableOpacity onPress={() => navigation.navigate("Cart")}><Feather name="shopping-cart" size={28} color="black" /></TouchableOpacity>
 			</View>
 			{/* Search box */}
 			<View style={{ padding: 5, flexDirection: "row" }}>

@@ -12,6 +12,7 @@ import HomeScreen from "./src/view/screens/HomeScreen";
 import DetailsSceeen from "./src/view/screens/DetailsScreen";
 import Login from "./src/view/screens/Login";
 import SignUp from "./src/view/screens/SignUp";
+import CartScreen from "./src/view/screens/CartScreen";
 // import LoginScreen from "./src/components/LoginScreen";
 
 const Stack = createStackNavigator();
@@ -33,6 +34,7 @@ export default function App() {
 				{/* <Stack.Screen name="Home" component={HomeScreen} /> */}
 
 				<Stack.Screen name="Details" component={DetailsSceeen} />
+				<Stack.Screen name="Cart" component={CartScreen} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
