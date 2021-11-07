@@ -25,6 +25,7 @@ import {
 	Text,
 	View,
 	TextInput,
+	Image,
 	Button,
 	TouchableOpacity,
 } from "react-native";
@@ -33,6 +34,16 @@ import {
 function Login({ navigation }) {
 	return (
 		<View style={styles.container}>
+			<Image
+        style={{
+          width: '50%',
+          height: 200,
+          borderRadius: 30,
+          marginBottom: 20,
+        //   transform: [{ rotate: "0deg" }],
+        }}
+        source={require("./logo.png")}
+      />
 			<Text style={styles.logo}>Hamper Shop</Text>
 			<View style={styles.inputView}>
 				<TextInput
