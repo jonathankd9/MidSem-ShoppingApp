@@ -1,24 +1,3 @@
-// import * as React from "react";
-// import { Button, View, Text, Image } from "react-native";
-// import { NavigationContainer } from "@react-navigation/native";
-// import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-// function Login({ navigation }) {
-// 	return (
-// 		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-
-// 			<Text>Login Page</Text>
-// 			<Text>Login Page</Text>
-// 			<Button
-// 				title="Go to Details"
-// 				onPress={() => navigation.navigate("Home")}
-// 			/>
-// 		</View>
-// 	);
-// }
-
-// export default Login;
-
 import React from "react";
 import {
 	StyleSheet,

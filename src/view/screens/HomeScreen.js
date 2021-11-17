@@ -13,9 +13,14 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import COLORS from "../../consts/colors";
 import plants from "../../consts/plants";
 const width = Dimensions.get("window").width / 2 - 40;
-import { Feather, MaterialIcons } from "@expo/vector-icons";
+import { Feather, MaterialIcons, AntDesign } from "@expo/vector-icons";
+import styles from "./styles";
 
 const HomeScreen = ({ navigation }) => {
+	var [cart, updateCart] = React.useState([]);
+	var [totalCart, updateNumber] = React.useState(0);
+	var [totalPrice, updateTotalPrice] = React.useState(0);
+
 	const [catergoryIndex, setCategoryIndex] = React.useState(0);
 
 	const categories = ["CHRISTMAS", "NEW YEAR", "GIFT", "BIRTHDAY"];
@@ -117,8 +122,38 @@ const HomeScreen = ({ navigation }) => {
 							</Text>
 						</View>
 					</View>
-				</View>
-			</TouchableOpacity>
+
+{/* Add to Cart button */}
+			<TouchableOpacity
+        style={{
+          backgroundColor: "#f07e05",
+          borderRadius: 10,
+          padding: 4,
+          alignItems: "center",
+          justifyContent: "center",
+          //marginTop: 10,
+          flexDirection: "row",
+          marginTop:-4
+        }}
+        onPress={() => {
+          updateNumber((totalCart -= 1));
+          updateCart(cart.filter((product) => product !== item));
+        }}>
+          <AntDesign
+            name="plus"
+            size={19}
+            color="white"
+            style={{ paddingHorizontal: 10 }}
+          />
+          <Text style={{ color: "white", fontWeight: "bold" }}>
+            Add to Cart
+          </Text>
+      </TouchableOpacity>
+
+</View>
+
+
+	</TouchableOpacity>
 		);
 	};
 
@@ -127,16 +162,46 @@ const HomeScreen = ({ navigation }) => {
 			style={{ flex: 1, paddingHorizontal: 20, backgroundColor: COLORS.white }}
 		>
 			{/* Title: Welcome to Hamper Shop */}
-			<View style={style.header}>
+			<View>
 				<View>
+					<View style={style.linecart}>
 					{/* <Text style={{ fontSize: 18, fontWeight: "light" }}>Hello there,</Text> */}
 					<Text style={{ fontSize: 25, fontWeight: "bold" }}>Welcome to</Text>
+
+					{/* Cart Icon Direction */}
+
+					<TouchableOpacity onPress={()=>navigation.navigate("Cart", {cart})}>
+					<View
+          style={{
+            height: 20,
+            width: 20,
+            backgroundColor: "orange",
+            borderRadius: 10,
+            position: "absolute",
+            right: -3,
+            elevation: 3,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Text style={{ color: "red" ,fontWeight:'bold'}}>{cart.length}</Text>
+        </View>
+					<Icon style={{ alignSelf: "center", top: 5 }} name="shopping-cart" size={28} />
+					</TouchableOpacity>
+					</View>
+
+
+					{/* Hamper Shop */}
 					<Text style={{ fontSize: 38, fontWeight: "bold", color: COLORS.red }}>
 						Hamper Shop
 					</Text>
-				</View>
-				<TouchableOpacity onPress={() => navigation.navigate("Cart")}><Feather name="shopping-cart" size={28} color="black" /></TouchableOpacity>
+				</View>	
+
+
 			</View>
+
+
+
 			{/* Search box */}
 			<View style={{ padding: 5, flexDirection: "row" }}>
 				<View style={style.searchContainer}>
@@ -153,7 +218,7 @@ const HomeScreen = ({ navigation }) => {
 				</View>
 			</View>
 			<CategoryList />
-			<FlatList
+			{/* <FlatList
 				columnWrapperStyle={{ justifyContent: "space-between" }}
 				showsVerticalScrollIndicator={false}
 				contentContainerStyle={{
@@ -165,7 +230,126 @@ const HomeScreen = ({ navigation }) => {
 				renderItem={({ item }) => {
 					return <Card plant={item} />;
 				}}
-			/>
+			/> */}
+
+<FlatList 
+        columnWrapperStyle={{justifyContent: 'space-between'}}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          marginTop:10,
+          paddingBottom:50,
+        }}
+        numColumns={2}
+        key = {({item}) => item.id}
+        data={plants} 
+        renderItem={({item, index}) => 
+        (
+          <SafeAreaView style={styles.container}>
+          
+           <View style={{alignItems:'flex-end'}}>
+               <View style={{width:30,
+                            height:30,
+                            borderRadius:10, 
+                            alignItems:'center',
+                            justifyContent:'center',
+                            backgroundColor:item.like ? 'rgba(245,42,42,0.2)': 'rgba(0,0,0,0.2)'}}>
+                   <MaterialIcons name='favorite' size={19} color={item.like? 'red':'black'}/>
+               </View>
+           </View>
+           <TouchableOpacity
+             onPress={()=>navigation.navigate("Details", item)}>
+          <View style={styles.img}>
+          <Image
+           style = {styles.image}
+           source= {item.img}/>
+          </View> 
+          </TouchableOpacity>
+          <Text style={styles.watchName}>
+               {item.gender}
+          </Text>
+          <View style={styles.price_container}>
+          <Text style={styles.currency}>
+            {item.currency}
+          </Text>
+          <Text style={styles.price}>
+              {item.price}
+          </Text>
+          </View>
+
+          
+          {cart.includes(item) ? (
+                  <TouchableOpacity
+                    activeOpacity={0.8}
+                    style={{
+                      backgroundColor: "#bdbdbd",
+                      borderRadius: 5,
+                      padding: 4,
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginTop: -4,
+                      flexDirection: "row",
+                    }}
+                    onPress={() => {
+                      updateNumber((totalCart -= 1));
+
+                      updateCart(cart.filter((product) => product !== item));
+                    }}
+                  >
+                    
+                    <View
+                      style={{
+                        height: 20,
+                        width: 20,
+                        borderRadius: 10,
+                        backgroundColor: "red",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        marginHorizontal: 20,
+                      }}
+                    >
+                      <AntDesign name="minus" size={18} color="white" />
+                    </View>
+                    <Text style={{ fontWeight: "bold" }}>Added</Text>
+                  </TouchableOpacity>
+                ) : (
+                  <TouchableOpacity
+                    style={{
+                      backgroundColor: "#f07e05",
+                      borderRadius: 5,
+                      padding: 4,
+                      alignItems: "center",
+                      justifyContent: "center",
+                      //marginTop: 10,
+                      flexDirection: "row",
+                      marginTop:-4
+                    }}
+                    onPress={() => {
+                      
+
+                      updateCart([...cart, item]);
+                    }}
+                  >
+                    <AntDesign
+                      name="plus"
+                      size={19}
+                      color="white"
+                      style={{ paddingHorizontal: 10 }}
+                    />
+                    <Text style={{ color: "white", fontWeight: "bold" }}>
+                      Add to Cart
+                    </Text>
+                  </TouchableOpacity>
+                )}
+          
+          
+          
+        </SafeAreaView>
+
+        )}
+        />
+
+
+
 		</SafeAreaView>
 	);
 };
@@ -176,6 +360,12 @@ const style = StyleSheet.create({
 		// marginLeft: 20,
 		// marginRight: 20,
 		padding: 10,
+		flexDirection: "row",
+		justifyContent: "space-between",
+	},
+	linecart: {
+		paddingHorizontal: 0,
+		marginTop: 20,
 		flexDirection: "row",
 		justifyContent: "space-between",
 	},

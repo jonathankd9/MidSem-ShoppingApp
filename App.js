@@ -4,7 +4,7 @@ import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { StatusBar } from "react-native";
 import COLORS from "./src/consts/colors";
@@ -13,6 +13,8 @@ import DetailsSceeen from "./src/view/screens/DetailsScreen";
 import Login from "./src/view/screens/Login";
 import SignUp from "./src/view/screens/SignUp";
 import CartScreen from "./src/view/screens/CartScreen";
+import Checkout from "./src/view/screens/Checkout";
+
 // import LoginScreen from "./src/components/LoginScreen";
 
 const Stack = createStackNavigator();
@@ -35,6 +37,7 @@ export default function App() {
 
 				<Stack.Screen name="Details" component={DetailsSceeen} />
 				<Stack.Screen name="Cart" component={CartScreen} />
+				<Stack.Screen name="Checkout" component={Checkout} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
