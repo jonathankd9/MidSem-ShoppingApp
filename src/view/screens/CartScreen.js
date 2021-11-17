@@ -5,6 +5,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { useState } from "react";
 
 import styles from './styles.js'
+import COLORS from "../../consts/colors.js";
 
 const Cart = ({ navigation, route }) => {
   const [cart, setCart] = React.useState([...route.params.cart]);
@@ -24,22 +25,22 @@ const Cart = ({ navigation, route }) => {
     return price;
   }
   return (
-    <View style={{ paddingHorizontal: 20, flex: 1,marginTop:18,backgroundColor:'#F3E6DE' }}>
-      <StatusBar backgroundColor="black" barStyle="light-content" />
+    <View style={{ paddingHorizontal: 20, flex: 1,marginTop:18,backgroundColor:'white' }}>
+      <StatusBar backgroundColor="white" barStyle="light-content" />
       <Text
         style={{ textAlign: "center", fontSize: 25,fontWeight:'bold' }}>
-        <Text style={{ color: "orange" }}>My</Text> Shopping Cart
+        Added Items
       </Text>
 
       {route.params.cart.length == 0 ? (
         <View style={{ justifyContent: "center", alignItems: "center",paddingTop:'50%' }}>
-          <Lottie
+          {/* <Lottie
             ref={(lottie) => (lottieRef = lottie)}
             style={{ height: 200, width: 200 }}
             source={require("../screens/4495-shopping-basket.json")}
-          />
+          /> */}
           <Text style={{ fontSize: 18 }}>
-            Your Cart is Empty 😥
+            Your Cart is Empty, Add Something
           </Text>
         </View>
       ) : (
@@ -57,7 +58,7 @@ const Cart = ({ navigation, route }) => {
                     padding: 5,
                     flexDirection: "row",
                     justifyContent: "space-between",
-                    backgroundColor: "#fafafa",
+                    backgroundColor: "white",
                     borderRadius: 10,
                   }}>
                 <Image
@@ -69,26 +70,24 @@ const Cart = ({ navigation, route }) => {
                       {item.description}
                     </Text>
                   </View>
-                  <View style={{flexDirection:'row',marginTop:5}}>
+                  <View style={{color: 'red', flexDirection:'row',marginTop:5}}>
                   <Text >
-                    Gender:
+                    Name:
                   </Text>                
                   <Text style={{}}>
                       {" "}
-                      {item.gender}
+                      {item.name}
                   </Text>
                   </View>
                   <View style={{flexDirection:'row',paddingTop:5}}>
                   <Text>
                     Price:
                   </Text>
-                  <Text>
-                   {item.currency}
-                  </Text>
+                  
                   <View style={{}}>
                   <Text style={{}}>
                       {" "}
-                      {item.price}
+                      ${item.price}
                   </Text>
                   </View>
                   </View>
@@ -99,7 +98,7 @@ const Cart = ({ navigation, route }) => {
           <View
             style={{
               borderWidth: 2,
-              borderColor: "orange",
+              borderColor: COLORS.red,
               flexDirection: "row",
               justifyContent: "space-between",
               paddingHorizontal: 10,
@@ -121,7 +120,7 @@ const Cart = ({ navigation, route }) => {
 
           <TouchableOpacity
             disabled={loading ? true : false}
-            style={{ backgroundColor: "#f07e05", marginHorizontal:100,padding:10,borderRadius:10 }}
+            style={{ backgroundColor: COLORS.red, marginHorizontal:100,padding:10,borderRadius:10 }}
             activeOpacity={0.8}
             onPress={() => {
               navigation.navigate('Checkout')

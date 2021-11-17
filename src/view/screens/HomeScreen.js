@@ -11,7 +11,7 @@ import {
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import COLORS from "../../consts/colors";
-import plants from "../../consts/plants";
+import hampers from "../../consts/hampers";
 const width = Dimensions.get("window").width / 2 - 40;
 import { Feather, MaterialIcons, AntDesign } from "@expo/vector-icons";
 import styles from "./styles";
@@ -48,11 +48,11 @@ const HomeScreen = ({ navigation }) => {
 		);
 	};
 
-	const Card = ({ plant }) => {
+	const Card = ({ hamper }) => {
 		return (
 			<TouchableOpacity
 				activeOpacity={0.8}
-				onPress={() => navigation.navigate("Details", plant)}
+				onPress={() => navigation.navigate("Details", hamper)}
 			>
 				<View style={style.card}>
 					<View style={{ alignItems: "flex-end" }}>
@@ -63,7 +63,7 @@ const HomeScreen = ({ navigation }) => {
 								borderRadius: 20,
 								justifyContent: "center",
 								alignItems: "center",
-								backgroundColor: plant.like
+								backgroundColor: hamper.like
 									? "rgba(245, 42, 42,0.2)"
 									: "rgba(0,0,0,0.2) ",
 							}}
@@ -71,7 +71,7 @@ const HomeScreen = ({ navigation }) => {
 							<Icon
 								name="favorite"
 								size={18}
-								color={plant.like ? COLORS.red : COLORS.black}
+								color={hamper.like ? COLORS.red : COLORS.black}
 							/>
 						</View>
 					</View>
@@ -83,13 +83,13 @@ const HomeScreen = ({ navigation }) => {
 						}}
 					>
 						<Image
-							source={plant.img}
+							source={hamper.img}
 							style={{ flex: 1, resizeMode: "contain" }}
 						/>
 					</View>
 
 					<Text style={{ fontWeight: "bold", fontSize: 17, marginTop: 10 }}>
-						{plant.name}
+						{hamper.name}
 					</Text>
 					<View
 						style={{
@@ -99,7 +99,7 @@ const HomeScreen = ({ navigation }) => {
 						}}
 					>
 						<Text style={{ fontSize: 19, fontWeight: "bold" }}>
-							${plant.price}
+							${hamper.price}
 						</Text>
 						<View
 							style={{
@@ -175,7 +175,7 @@ const HomeScreen = ({ navigation }) => {
           style={{
             height: 20,
             width: 20,
-            backgroundColor: "orange",
+            backgroundColor: COLORS.red,
             borderRadius: 10,
             position: "absolute",
             right: -3,
@@ -184,7 +184,7 @@ const HomeScreen = ({ navigation }) => {
             justifyContent: "center",
           }}
         >
-          <Text style={{ color: "red" ,fontWeight:'bold'}}>{cart.length}</Text>
+          <Text style={{ color: "white" ,fontWeight:'bold'}}>{cart.length}</Text>
         </View>
 					<Icon style={{ alignSelf: "center", top: 5 }} name="shopping-cart" size={28} />
 					</TouchableOpacity>
@@ -218,19 +218,6 @@ const HomeScreen = ({ navigation }) => {
 				</View>
 			</View>
 			<CategoryList />
-			{/* <FlatList
-				columnWrapperStyle={{ justifyContent: "space-between" }}
-				showsVerticalScrollIndicator={false}
-				contentContainerStyle={{
-					marginTop: 10,
-					paddingBottom: 50,
-				}}
-				numColumns={2}
-				data={plants}
-				renderItem={({ item }) => {
-					return <Card plant={item} />;
-				}}
-			/> */}
 
 <FlatList 
         columnWrapperStyle={{justifyContent: 'space-between'}}
@@ -241,7 +228,7 @@ const HomeScreen = ({ navigation }) => {
         }}
         numColumns={2}
         key = {({item}) => item.id}
-        data={plants} 
+        data={hampers} 
         renderItem={({item, index}) => 
         (
           <SafeAreaView style={styles.container}>
@@ -265,14 +252,14 @@ const HomeScreen = ({ navigation }) => {
           </View> 
           </TouchableOpacity>
           <Text style={styles.watchName}>
-               {item.gender}
+               {item.name}
           </Text>
           <View style={styles.price_container}>
-          <Text style={styles.currency}>
+          {/* <Text style={styles.currency}>
             {item.currency}
-          </Text>
+          </Text> */}
           <Text style={styles.price}>
-              {item.price}
+              ${item.price}
           </Text>
           </View>
 
@@ -314,7 +301,7 @@ const HomeScreen = ({ navigation }) => {
                 ) : (
                   <TouchableOpacity
                     style={{
-                      backgroundColor: "#f07e05",
+                      backgroundColor: COLORS.red,
                       borderRadius: 5,
                       padding: 4,
                       alignItems: "center",
@@ -347,7 +334,6 @@ const HomeScreen = ({ navigation }) => {
 
         )}
         />
-
 
 
 		</SafeAreaView>

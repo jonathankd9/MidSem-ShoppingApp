@@ -29,7 +29,7 @@ function Login({ navigation }) {
 					style={styles.inputText}
 					placeholder="Email..."
 					placeholderTextColor="#003f5c"
-					onChangeText={(text) => this.setState({ email: text })}
+					// onChangeText={(text) => this.setState({ email: text })}
 				/>
 			</View>
 			<View style={styles.inputView}>
@@ -38,7 +38,7 @@ function Login({ navigation }) {
 					style={styles.inputText}
 					placeholder="Password..."
 					placeholderTextColor="#003f5c"
-					onChangeText={(text) => this.setState({ password: text })}
+					// onChangeText={(text) => this.setState({ password: text })}
 				/>
 			</View>
 			<TouchableOpacity>
@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
 		backgroundColor: "#003f5c",
 		alignItems: "center",
 		justifyContent: "center",
+		backgroundColor: 'white',
 	},
 	logo: {
 		fontWeight: "bold",
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
 	},
 	inputView: {
 		width: "80%",
-		backgroundColor: "#465881",
+		backgroundColor: "#fb5b5a",
 		borderRadius: 25,
 		height: 50,
 		marginBottom: 20,
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
 		color: "white",
 	},
 	forgot: {
-		color: "white",
+		color: "black",
 		fontSize: 11,
 	},
 	loginBtn: {

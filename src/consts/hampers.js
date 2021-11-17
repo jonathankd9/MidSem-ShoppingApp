@@ -1,4 +1,4 @@
-const plants = [
+const hampers = [
 	{
 		id: 1,
 		name: "Christ Hamper ",
@@ -67,4 +67,4 @@ const plants = [
 	},
 ];
 
-export default plants;
+export default hampers;
